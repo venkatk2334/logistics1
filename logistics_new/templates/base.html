@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Site administration | Django site admin</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+
+<body class=" dashboard"
+  data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+    <ul class="nav navbar-nav">
+      
+      <li class="active"><a href="/sender/" style="padding-top: 0px;">Sender</a></li>
+      <li><a href="/carrier/" style="padding-top: 0px;">Carrier</a></li>
+      <li><a href="/reciver/" style="padding-top: 0px;">Reciver</a></li>
+      
+            
+        
+      <li><a href="/admin/shipping/transaction/add/" style="padding-top: 0px;">Add Transaction</a></li>
+  </ul>
+
+        
+        
+        <div id="user-tools">
+            
+                Welcome,
+                <strong>{{request.user}}</strong>.
+            
+            
+               
+                
+                    
+                    
+                
+                
+                <a href="/admin/password_change/">Change password</a> /
+                
+                <a href="/accounts/logout/">Log out</a>
+            
+        </div>
+        
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+{% block content_block %}
+
+{% endblock %}
+</div>
+</body>
+</html>

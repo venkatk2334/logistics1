@@ -1,0 +1,81 @@
+
+	<html lang="en">
+	<head>
+	  <title>Select Role</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+
+	</head>
+
+<body>
+<div class="container">
+
+	<div id="success">
+		{% if done %}
+			<span id = "donesuccess">  </span>
+				<p style="line-height:0px;">  Your Role is saved.</p> &nbsp; &nbsp; &nbsp;<br>
+        <a href="/"><button>Go To Home</button> </a>	
+	    {% else %}
+	</div>
+	    <form method="post" name = "indexform" id = "indexform" action="/" onsubmit="return validateForm()">
+	    {% csrf_token %}
+
+		
+<div class="container">
+           <div class="col-md-12 col-xs-12">
+                        <h4 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                        	Select Your priority Role
+                        </u></b></h4>
+
+            </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+          <div class="col-md-3">
+            <strong style=  "color:#a71a1a"><small for="carrier info">Select Your Role</small> <sup>*</sup></strong>
+        		  <div class="form-group">
+                          <select class="form-control" id="designation" name="designation" required>
+                           <option value="">--Select-</option>
+                           <option value="sender">Sender</option>
+                           <option value="carrier">Carrier</option>
+                           <option value="reciver">Reciver</option>
+                          </select>
+              </div>        
+          </div>
+
+          <div class="col-md-3">
+        		  <div class="form-group">
+                          <button type="submit" class="btn btn-primary">Save</button>
+                      </div>        
+          </div>
+
+		</div>
+	</div>
+</div>
+
+</form>
+
+
+	</div>
+  </div>
+</div>
+
+	{% endif %}
+</div>
+	</body>
+	</html>

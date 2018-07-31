@@ -1,0 +1,76 @@
+
+	<html lang="en">
+	<head>
+	  <title>Add Carrier</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+
+	</head>
+
+<body>
+<div class="container">
+
+	<div id="success">
+		{% if done %}
+			<span id = "donesuccess">  </span>
+				<p style="line-height:0px;">  Data has been sucessfully saved.</p> &nbsp; &nbsp; &nbsp;<br>	
+        <a href="/sendgoods/"><button> sendgoods </button></a>
+    {% else %}
+	</div>
+	    <form method="post" name = "reciverform" id = "reciverform" action="/addreciver/" onsubmit="return validateForm()">
+	    {% csrf_token %}
+
+	<div class="container">
+           <div class="col-md-12 col-xs-12">
+            
+                        <h4 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                          Vehicle Details
+                        </u></b></h4> 
+            </div>
+
+</div>
+
+
+<div class="container-fluid container2" style="margin-top:10px">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="col-md-2">
+
+            <small><strong style=  "color:#a71a1a">vehicle_no:</strong></small>
+               <input placeholder = "vehicle_no" type="text" name="vehicle_no" id="vehicle_no" class="form-control"> 
+          </div>
+            <div class="col-md-2">
+              <small> <strong>vehicle_name:</strong></small>
+               <input placeholder = "vehicle_name" type="text" name="vehicle_name" id="vehicle_name" class="form-control">
+           </div>
+
+            <div class="col-md-2">
+              <small for="registered_on"><strong>registered_on</strong></small>
+              <input placeholder = "registered_on" type="text" name="registered_on" id="registered_on" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <small><strong> registered_on:</strong></small>
+                <input placeholder = "registered_on" type="text" name="registered_on" id="registered_on">
+            </div>
+            <div class="col-md-2">
+              <small><strong> licence_no:</strong></small>
+               <input placeholder = "licence_no"  type="text" name="licence_no" id="licence_no">
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+</form>
+
+
+	{% endif %}
+  </div>
+</body>
+</html>

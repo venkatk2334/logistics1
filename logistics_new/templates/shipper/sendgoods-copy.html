@@ -1,0 +1,140 @@
+
+	<html lang="en">
+	<head>
+	  <title>Gate In</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+
+	</head>
+
+<body>
+<div class="container">
+
+	<div id="success">
+		{% if done %}
+			<span id = "donesuccess">  </span>
+				<p style="line-height:0px;">  Data has been sucessfully saved.</p> &nbsp; &nbsp; &nbsp;<br>	
+	    {% else %}
+	</div>
+	    <form method="post" name = "sendgoodsform" id = "sendgoodsform" action="/sendgoods/" onsubmit="return validateForm()">
+	    {% csrf_token %}
+
+		
+<div class="container">
+           <div class="col-md-12 col-xs-12">
+            
+                        <h4 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                        	Carrier Details
+                        </u></b></h4> 
+            </div>
+
+    </div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+          <div class="col-md-2">
+            
+             <strong style=  "color:#a71a1a"><small for="carrier name">carrier name</small> <sup>*</sup></strong>
+                <input placeholder = "Carrier Name" required type="text" name="carrier_name" id="carrier_name" class="form-control">
+          </div>
+
+          <div class="col-md-2">
+                   <strong><small for="Carrier Mail Id">Carrier Mail Id </small><sup>*</sup></strong>
+                <input placeholder = "Carrier Mail Id" required type="text" name="mail_id" id="mail_id" class="form-control">
+                          
+          </div>
+            <div class="col-md-2">
+               <strong><small for="phone">Phone</small><sup>*</sup></strong>
+                        	<input placeholder = "Carrier Mail Id" required type="text" name="phone" id="phone" class="form-control">
+            </div>
+		</div>
+	</div>
+</div>
+<div class="container">
+           <div class="col-md-12 col-xs-12">
+            
+                        <h4 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                        	Vehicle Details
+                        </u></b></h4> 
+            </div>
+
+</div>
+
+
+<div class="container-fluid container2" style="margin-top:10px">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="col-md-2">
+
+            <small><strong style=  "color:#a71a1a">vehicle_no:</strong></small>
+               <input placeholder = "vehicle_no" type="text" name="vehicle_no" id="vehicle_no" class="form-control"> 
+          </div>
+            <div class="col-md-2">
+              <small> <strong>vehicle_name:</strong></small>
+               <input placeholder = "vehicle_name" type="text" name="vehicle_name" id="vehicle_name" class="form-control">
+           </div>
+
+            <div class="col-md-2">
+              <small for="registered_on"><strong>registered_on</strong></small>
+              <input placeholder = "registered_on" type="text" name="registered_on" id="registered_on" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <small><strong> registered_on:</strong></small>
+                <input placeholder = "registered_on" type="text" name="registered_on" id="registered_on">
+            </div>
+            <div class="col-md-2">
+              <small><strong> licence_no:</strong></small>
+               <input placeholder = "licence_no"  type="text" name="licence_no" id="licence_no">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+           <div class="col-md-12">
+                        <h4 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>Reciver Details</u></b></h4>
+            </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2 col-xs-12">
+            <strong><small >reciver_name:</small></strong>
+            <input placeholder = "reciver_name"  type="text" name="reciver_name" id="reciver_name">
+        </div>
+        <div class="col-md-2 col-xs-12">
+          <strong><small >reciver_name:</small></strong>
+            <input placeholder = "reciver_name"  type="text" name="rec_mail_id" id="rec_mail_id">
+        </div>
+		<div class="col-md-2 col-xs-12">
+          <strong><small >phone:</small></strong>
+            <input placeholder = "phone"  type="text" name="rec_phone" id="rec_phone">
+        </div>  
+    </div>
+  </div>
+</div>    
+     <br>
+   <div class="col-md-12" style="margin-top:18px">
+        <label> &nbsp;</label>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+</form>
+
+
+	{% endif %}
+</div>
+	</body>
+	</html>

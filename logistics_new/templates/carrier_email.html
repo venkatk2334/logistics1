@@ -1,0 +1,8 @@
+{% block content %}
+{% autoescape off %}
+
+	{{slug}}
+    <a href="127.0.0.1:8000/{{slug}}">127.0.0.1:8000/{{slug}}</a>
+	{{ protocol }}://{{ domain }}{{slug}}
+{% endautoescape %}
+{% endblock %}

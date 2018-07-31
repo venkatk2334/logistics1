@@ -1,0 +1,69 @@
+
+	<html lang="en">
+	<head>
+	  <title>Add Carrier</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+
+	</head>
+
+<body>
+<div class="container">
+
+	<div id="success">
+		{% if done %}
+			<span id = "donesuccess">  </span>
+				<p style="line-height:0px;">  Data has been sucessfully saved.</p> &nbsp; &nbsp; &nbsp;<br>	
+        <a href="/sendgoods/"><button> sendgoods </button></a>
+    {% else %}
+	</div>
+	    <form method="post" name = "carrierform" id = "carrierform" action="/addcarrier/" onsubmit="return validateForm()">
+	    {% csrf_token %}
+
+		
+<div class="container">
+           <div class="col-md-12 col-xs-12">
+            
+                        <h4 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                        	Carrier Details
+                        </u></b></h4> 
+            </div>
+
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+          <div class="col-md-2">
+            
+             <strong style=  "color:#a71a1a"><small for="carrier name">carrier name</small> <sup>*</sup></strong>
+                <input placeholder = "Carrier Name" required type="text" name="carrier_name" id="carrier_name" class="form-control">
+          </div>
+
+          <div class="col-md-2">
+                   <strong><small for="Carrier Mail Id">Carrier Mail Id </small><sup>*</sup></strong>
+                <input placeholder = "Carrier Mail Id" required type="text" name="mail_id" id="mail_id" class="form-control">
+                          
+          </div>
+            <div class="col-md-2">
+               <strong><small for="phone">Phone</small><sup>*</sup></strong>
+                        	<input placeholder = "Carrier Mail Id" required type="text" name="phone" id="phone" class="form-control">
+            </div>
+		</div>
+	</div>
+</div>
+
+</form>
+
+
+	{% endif %}
+  </div>
+</body>
+</html>

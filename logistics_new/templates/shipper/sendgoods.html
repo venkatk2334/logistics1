@@ -1,0 +1,149 @@
+
+	<html lang="en">
+	<head>
+	  <title>Send Goods</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+
+	</head>
+
+<body>
+<div class="container">
+
+	<div id="success">
+		{% if done %}
+			<span id = "donesuccess">  </span>
+				<p style="line-height:0px;">  Data has been sucessfully saved.</p> &nbsp; &nbsp; &nbsp;<br>	
+	    {% else %}
+	</div>
+	    <form method="post" name = "sendgoodsform" id = "sendgoodsform" action="/sendgoods/" onsubmit="return validateForm()">
+	    {% csrf_token %}
+
+		
+<div class="container">
+           <div class="col-md-12 col-xs-12">
+                        <h4 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                        	Select data
+                        </u></b></h4> 
+            </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-3">
+            <strong style=  "color:#a71a1a"><small for="From location">From location</small> <sup>*</sup></strong>
+              <div class="form-group">
+                          <input type="text" class="form-control" id="transfer_from" name="transfer_from" required>
+              </div>        
+          </div>
+          <div class="col-md-3">
+            <strong style=  "color:#a71a1a"><small for="To Location">To Location</small> <sup>*</sup></strong>
+              <div class="form-group">
+                          <input type="text" class="form-control" id="transfer_to" name="transfer_to" required>
+                      </div>        
+          </div>
+          <div class="col-md-3">
+            <strong style=  "color:#a71a1a"><small for="carrier info">carrier info</small> <sup>*</sup></strong>
+        		  <div class="form-group">
+                          <select class="form-control" id="carrier" name="carrier" required>
+                           <option value="">--Select-</option>
+                            {% for c in carriers %}
+                  				<option value="{{c.id}}">{{c.user}}</option>
+                			{% endfor %}
+                          </select>
+                      </div>        
+          </div>
+
+            <div class="col-md-3">
+               <strong><small for="Recive Info">Reciver Info</small><sup>*</sup></strong>
+        		  <div class="form-group">
+                          <select class="form-control" id="reciver" name="reciver" required>
+                           <option value="">--Select-</option>
+                            {% for r in recivers %}
+                  				<option value="{{r.id}}">{{r.user}}</option>
+                			{% endfor %}
+                          </select>
+                      </div>        
+            </div>
+
+<div class="container">
+           <div class="col-md-12 col-xs-12">
+                        <h2 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                          <center>Document</center>
+                        </u></b></h2> 
+            </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+{{ form.as_p }}
+
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+          <div class="col-md-3">
+        		  <div class="form-group">
+                          <button type="submit" class="btn btn-primary">Save</button>
+                      </div>        
+          </div>
+
+		</div>
+	</div>
+</div>
+
+</form>
+
+
+<div class="container">
+           <div class="col-md-12 col-xs-12">
+                        <h2 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                        	<center>(OR)</center>
+                        </u></b></h2> 
+            </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+
+          <div class="col-md-6">
+        		  <div class="form-group">
+                       <center><a href="/addcarrier/"><button>Add Carrier</button> </a></center>
+                      </div>        
+          </div>
+          <div class="col-md-6">
+        		  <div class="form-group">
+        		  		<center><a href="/addreciver/"><button>Add Reciver</button></a></center>
+                      </div>        
+          </div>
+
+
+	</div>
+  </div>
+</div>
+
+	{% endif %}
+</div>
+	</body>
+	</html>

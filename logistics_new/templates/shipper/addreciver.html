@@ -1,0 +1,67 @@
+
+	<html lang="en">
+	<head>
+	  <title>Add Carrier</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+
+	</head>
+
+<body>
+<div class="container">
+
+	<div id="success">
+		{% if done %}
+			<span id = "donesuccess">  </span>
+				<p style="line-height:0px;">  Data has been sucessfully saved.</p> &nbsp; &nbsp; &nbsp;<br>	
+        <a href="/sendgoods/"><button> sendgoods </button></a>
+    {% else %}
+	</div>
+	    <form method="post" name = "reciverform" id = "reciverform" action="/addreciver/" onsubmit="return validateForm()">
+	    {% csrf_token %}
+
+		
+<div class="container">
+           <div class="col-md-12 col-xs-12">
+            
+                        <h4 style="color:#1982dcfa;font-family: 'Lato', sans-serif;text-align: center;" ><b><u>
+                        	Reciver Details
+                        </u></b></h4> 
+            </div>
+
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2 col-xs-12">
+            <strong><small >reciver_name:</small></strong>
+            <input placeholder = "reciver_name"  type="text" name="reciver_name" id="reciver_name">
+        </div>
+        <div class="col-md-2 col-xs-12">
+          <strong><small >reciver_name:</small></strong>
+            <input placeholder = "reciver_name"  type="text" name="rec_mail_id" id="rec_mail_id">
+        </div>
+    <div class="col-md-2 col-xs-12">
+          <strong><small >phone:</small></strong>
+            <input placeholder = "phone"  type="text" name="rec_phone" id="rec_phone">
+        </div>  
+    </div>
+  </div>
+</div>    
+     <br>
+
+</form>
+
+
+	{% endif %}
+  </div>
+</body>
+</html>

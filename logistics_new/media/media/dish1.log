@@ -1,0 +1,2 @@
+entered
+error is: (u'400 Client Error: Bad Request for url: https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText?mode=Handwritten',)

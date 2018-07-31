@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content_block %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Transaction Id
+						</th>
+						<th>
+							Transaction From
+						</th>
+						<th>
+							Transaction To
+						</th>
+						<th>
+							Sender
+						</th>
+						<th>
+							carrier
+						</th>
+						<th>
+							Reciver
+						</th>
+
+						<th>
+							Shippment Info
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for t in trans %}
+					<tr>
+						<td>
+							{{t.id}}
+						</td>
+						<td>
+							{{t.transaction_from}}
+						</td>
+						<td>
+							{{t.transaction_to}}
+						</td>
+						<td>
+							{{t.sender}}
+						</td>
+						<td>
+							{{t.carreir}}
+						</td>
+						<td>
+							{{t.reciver}}
+						</td>
+						<td>
+							<a href="/document/{{t.id}}">Shippment Info</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

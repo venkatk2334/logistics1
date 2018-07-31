@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+{% block content_block %}
+
+
+<frameset cols="100%">
+  {% if request.user.employee.designation == "sender" %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Transaction ID
+            </th>
+
+            <th>
+              Transaction From
+            </th>
+            <th>
+              Transaction To
+            </th>           
+            <th>
+              Sender
+            </th>
+            <th>
+              carrier
+            </th>
+            <th>
+              Reciver
+            </th>
+            <th>
+              Shipment Delivered
+            </th>
+            <th>
+              Document
+            </th>
+            <th>
+              Edit
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in trans %}
+          <tr>
+            <td>
+              {{t.id}}
+            </td>
+            <td>
+              {{t.transaction_from}}
+            </td>
+            <td>
+              {{t.transaction_to}}
+            </td>           
+            <td>
+              {{t.sender}}
+            </td>
+            <td>
+              {{t.carreir}}
+            </td>
+            <td>
+              {{t.reciver}}
+            </td>
+            <td>
+
+              {% if r.carrier.time_of_taken == None %}
+              <a href="/sendmail/{{r.carrier.id}}">Shipment ready for Pickup</a>
+              {% else %}
+              mail already sent
+              {% endif %}
+            </td>
+            <td>
+              <a href="/document/{{t.id}}">Shippment Info</a>
+            </td>
+            <td>
+              <a href="/admin/shipping/transaction/{{t.id}}/change/"><button>Edit</button></a>
+            </td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+<!--</div>-->
+
+    
+  {% elif request.user.employee.designation == "carrier" %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Transaction Id
+            </th>
+             <td>
+              {{t.transaction_from}}
+            </td>
+            <td>
+              {{t.transaction_to}}
+            </td>
+            <th>
+              Sender
+            </th>
+            <th>
+              carrier
+            </th>
+            <th>
+              Reciver
+            </th>
+            <th>
+              Shipment Delivered
+            </th>
+            <th>
+              Shippment Info
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in trans %}
+          <tr>
+            <td>
+              {{t.id}}
+            </td>
+
+            <td>
+              {{t.sender}}
+            </td>
+            <td>
+              {{t.carreir}}
+            </td>
+            <td>
+              {{t.reciver}}
+            </td>
+            <td>
+              {% if r.carrier.time_of_taken == None %}
+              <a href="/sendmail/{{r.carrier.id}}">Shipment loaded Ready to leave</a>
+              {% else %}
+              mail already sent
+              {% endif %}
+            </td>
+            <td>
+              <a href="/document/{{t.document.id}}">Shippment Info</a>
+            </td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div></div>
+  {% elif request.user.employee.designation == "reciver" %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Transaction Id
+            </th>
+            <th>
+              Sender
+            </th>
+              <th>
+              Transaction From
+            </th>
+            <th>
+              Transaction To
+            </th>
+            <th>
+              carrier
+            </th>
+            <th>
+              Reciver
+            </th>
+            <th>
+              Send mail
+            </th>
+            <th>
+              Shippment Info
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in trans %}
+          <tr>
+            <td>
+              {{t.id}}
+            </td>
+               <td>
+              {{t.transaction_from}}
+            </td>
+            <td>
+              {{t.transaction_to}}
+            </td>
+            <td>
+              {{t.sender}}
+            </td>
+            <td>
+              {{t.carreir}}
+            </td>
+            <td>
+              {{t.reciver}}
+            </td>
+            <td>
+
+              {% if r.carrier.time_of_taken == None %}
+              <a href="/sendmail/{{r.carrier.id}}">send mail</a>
+              {% else %}
+              mail already sent
+              {% endif %}
+            </td>
+            <td>
+              <a href="/document/{{t.document.id}}">Shippment Info</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% elif request.user.employee.designation == "sender" %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Transaction Id
+            </th>
+            <th>
+              Sender
+            </th>
+            <th>
+              carrier
+            </th>
+            <th>
+              Reciver
+            </th>
+            <th>
+              Send mail
+            </th>
+            <th>
+              Shippment Info
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in trans %}
+          <tr>
+            <td>
+              {{t.id}}
+            </td>
+            <td>
+              {{t.sender}}
+            </td>
+            <td>
+              {{t.carreir}}
+            </td>
+            <td>
+              {{t.reciver}}
+            </td>
+            <td>
+
+              {% if r.carrier.time_of_taken == None %}
+              <a href="/sendmail/{{r.carrier.id}}">send mail</a>
+              {% else %}
+              mail already sent
+              {% endif %}
+            </td>
+            <td>
+              <a href="/document/{{t.document.id}}">Shippment Info</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+        <!--{% else %}-->
+
+
+  {% endif %}
+</frameset>
+{% endblock %}

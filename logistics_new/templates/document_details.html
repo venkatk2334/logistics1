@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block content_block %}
+
+<div class="container-fluid">
+	<div class="row">
+		<p>
+		<div class="col-md-3">
+			<p>
+				<b> From Location: </b>{{documents.transaction_from}}
+			</p>
+
+		</div>
+		<div class="col-md-3">
+			<p>
+				<b> To Location: </b>{{documents.transaction_to}}</b>
+			</p>
+		</div>
+		<div class="col-md-3">
+			<p>
+				<b> Sender: </b>{{documents.sender}}</b>
+			</p>
+		</div>
+		<div class="col-md-3">
+			<p>
+				<b> Carrier: </b>{{documents.carreir}}</b>
+			</p>
+		</div>
+	</p>
+	<hr>
+	<p>
+		<div class="col-md-3">
+			<p>
+				<b> Reciver: </b>{{documents.reciver}}</b>
+			</p>
+		</div>
+
+		<div class="col-md-3">
+			<p>
+				<b> shipping_cost: </b>{{documents.shipping_cost}}</b>
+			</p>
+		</div>
+
+		<div class="col-md-3">
+			<p>
+				<b> shipping_item_name: </b>{{documents.shipping_item_name}}</b>
+			</p>
+		</div>
+
+		<div class="col-md-3">
+			<p>
+				<b> shipping_weight: </b>{{documents.shipping_weight}}</b>
+			</p>
+		</div>
+</p>
+<hr>
+<p>
+		<div class="col-md-3">
+			<p>
+				<b> shipping_quantity: </b>{{documents.shipping_quantity}}</b>
+			</p>
+		</div>
+		<div class="col-md-3">
+			<p>
+				<b> Carrier Reciver time: </b>{{documents.start_time}}</b>
+			</p>
+		</div>
+		<div class="col-md-3">
+			<p>
+				<b> Delivered Time: </b>{{documents.delivered_time}}</b>
+			</p>
+		</div>
+
+		<div class="col-md-3">
+			<p>
+				<a href="/media/{{documents.image_doc}}">cick here to see doc </a>
+			</p>
+		</div>
+
+</p>
+<hr>
+<p>
+		<div class="col-md-12">
+			<p>
+				<b> summary: </b>{{documents.summary}}</b>
+			</p>
+		</div>
+
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h2> Carriers Transfer List </h2>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Transfer From
+						</th>
+						<th>
+							Transfer To
+						</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					{% for t in transfers %}
+					<tr>
+						<td>
+							{{t.carrier_transfer_from}}
+						</td>
+						<td>
+							{{t.carreir_transfer_to}}
+						</td>												
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>	
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h2> Items List </h2>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Item Name
+						</th>
+						<th>
+							Weight
+						</th>
+						<th>
+							Unit Price
+						</th>
+						<th>
+							Quantity
+						</th>
+						<th>
+							Value
+						</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{% for i in items %}
+					<tr>
+						<td>
+							{{i.item_name}}
+						</td>
+						<td>
+							{{i.weight}}
+						</td>
+						<td>
+							{{i.unit_price}}
+						</td>
+						<td>
+							{{i.quantity}}
+						</td>
+						<td>
+							{{i.value}}
+						</td>
+
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+	
+{% endblock %}

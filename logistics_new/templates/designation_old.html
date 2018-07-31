@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      {% if request.user.employee.designation == "sender" %}
+      <li class="active"><a href="/sender/">Sender</a></li>
+      <li><a href="/carrier/">Carrier</a></li>
+      <li><a href="/reciver/">Reciver</a></li>
+            {% elif request.user.employee.designation == "carrier" %}
+      <li><a href="/sender/">Sender</a></li>
+      <li class="active"><a href="/carrier/">Carrier</a></li>
+      <li><a href="/reciver/">Reciver</a></li>
+            {% else %}
+      <li><a href="/sender/">Sender</a></li>
+      <li><a href="/carrier/">Carrier</a></li>
+      <li class="active"><a href="/reciver/">Reciver</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<frameset cols="100%">
+  {% if request.user.employee.designation == "sender" %}
+    <frame src="sender.html">
+  {% elif request.user.employee.designation == "carrier" %}
+    <frame src="carrier.html">
+  {% else %}
+    <frame src="reciver.html">
+  {% endif %}  
+</frameset>
+</html>

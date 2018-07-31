@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content_block %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Sender
+						</th>
+						<th>
+							carrier
+						</th>
+						<th>
+							Reciver
+						</th>
+						<th>
+							Send mail
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for t in trans %}
+					<tr>
+						<td>
+							{{t.sender}}
+						</td>
+						<td>
+							{{t.carreir}}
+						</td>
+						<td>
+							{{t.reciver}}
+						</td>
+						<td>
+
+							{% if r.carrier.time_of_taken == None %}
+							<a href="/sendmail/{{r.carrier.id}}">send mail</a>
+							{% else %}
+							mail already sent
+							{% endif %}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
